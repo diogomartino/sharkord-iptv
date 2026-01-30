@@ -14,12 +14,18 @@ Simple IPTV Plugin for Sharkord. Allows you to stream IPTV channels (and others)
 
 ![ss](https://i.imgur.com/IGmWnqC.png)
 
+## Settings
+
+- `playlist`: Paste the contents of your `.m3u` playlist here.
+
 ## Commands
 
-- `/iptv_start <stream_url>`: Starts streaming the specified IPTV stream in the given channel. This NEEDS to be a direct stream URL (e.g., an m3u8 link) NOT a playlist.
+- `/iptv_play_direct <stream_url> [stream_name]`: Starts streaming a direct IPTV stream URL (not a playlist).
+- `/iptv_play <channel_name>`: Finds the closest matching channel in the playlist and starts streaming it.
 - `/iptv_stop`: Stops the currently active IPTV stream in the channel.
-- `/iptv_clean`: Forcefully cleans up any active streams and processes.
+- `/iptv_clean`: Cleans up the active stream in the current channel.
+- `/iptv_cleanall`: Cleans up all active streams and processes.
 
 ## Notes
 
-The ffmpeg implementation is really basic and might not work perfectly all the time. Probably I'll improve it in the future. I'll also add playlist support and other features as soon as Sharkord has a better plugin API.
+The ffmpeg implementation is really basic and might not work perfectly all the time. Probably I'll improve it in the future. Playlist matching is powered by Fuse.js and should work well for most channel names.

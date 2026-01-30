@@ -6,3 +6,9 @@ export const zStartStreamCommand = z.object({
 });
 
 export type TStartStreamCommand = z.infer<typeof zStartStreamCommand>;
+
+export const zPlayStreamCommand = z.object({
+  channelName: z.string().min(1),
+});
+
+export type TPlayStreamCommand = z.infer<typeof zPlayStreamCommand>;
