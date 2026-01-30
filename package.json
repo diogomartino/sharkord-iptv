@@ -1,0 +1,26 @@
+{
+  "name": "sharkord-iptv",
+  "version": "0.0.1",
+  "module": "src/index.ts",
+  "sharkord": {
+    "entry": "index.js",
+    "author": "Diogo Martino",
+    "homepage": "https://google.com",
+    "description": "A plugin that allows users to stream IPTV channels directly within Sharkord",
+    "logo": "https://i.imgur.com/ozINkq3.jpeg"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist/sharkord-iptv --target bun --minify --format esm && cp package.json dist/sharkord-iptv/ && mkdir -p dist/sharkord-iptv/bin",
+    "build:dev": "bun run build && cp -r dist/* /home/martino/repos/sharkord/apps/server/data/plugins/ && cp ./bin/ffmpeg /home/martino/repos/sharkord/apps/server/data/plugins/sharkord-iptv/bin && chmod +x /home/martino/repos/sharkord/apps/server/data/plugins/sharkord-iptv/bin/ffmpeg"
+  },
+  "dependencies": {
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
