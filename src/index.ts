@@ -1,4 +1,12 @@
-import type { PluginContext, TInvokerContext } from "@sharkord/plugin-sdk";
+import type {
+  AppData,
+  PlainTransport,
+  PluginContext,
+  Producer,
+  TExternalStreamHandle,
+  TInvokerContext,
+  Transport,
+} from "@sharkord/plugin-sdk";
 import Fuse from "fuse.js";
 import { parse, type Playlist, type PlaylistItem } from "iptv-playlist-parser";
 import { killFFmpegProcesses, spawnFFmpeg, type TProcessPair } from "./ffmpeg";
@@ -14,11 +22,11 @@ type TStreamState = {
   intervalId: ReturnType<typeof setInterval> | null;
   streamActive: boolean;
   streamStarting: boolean;
-  videoProducer: any;
-  audioProducer: any;
-  videoTransport: any;
-  audioTransport: any;
-  streamHandle: any;
+  videoProducer: Producer | null;
+  audioProducer: Producer | null;
+  videoTransport: PlainTransport<AppData> | null;
+  audioTransport: PlainTransport<AppData> | null;
+  streamHandle: TExternalStreamHandle | null;
   isCleaning: boolean;
 };
 
@@ -60,7 +68,7 @@ const cleanupChannel = (channelId: number) => {
 
     state.processes = {};
 
-    state.streamHandle?.close?.();
+    state.streamHandle?.remove?.();
     state.streamHandle = null;
 
     state.videoProducer?.close();
