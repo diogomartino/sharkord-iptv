@@ -12,7 +12,7 @@ Simple IPTV Plugin for Sharkord. Allows you to stream IPTV channels (and others)
 
 ## Screenshots
 
-![ss](https://i.imgur.com/IGmWnqC.png)
+![ss](https://i.imgur.com/4WALR7e.png)
 
 ## Settings
 
