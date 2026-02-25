@@ -16,7 +16,7 @@
   "scripts": {
     "build": "bun build.ts",
     "build:dev": "bun run build && cp -r dist/* /home/martino/repos/sharkord/apps/server/data/plugins/ && cp ./bin/ffmpeg /home/martino/repos/sharkord/apps/server/data/plugins/sharkord-iptv/bin/ffmpeg && chmod +x /home/martino/repos/sharkord/apps/server/data/plugins/sharkord-iptv/bin/ffmpeg",
-    "build:zip": "zip -r sharkord-iptv.zip dist/*"
+    "build:zip": "bun run build && zip -r sharkord-iptv.zip dist/*"
   },
   "dependencies": {
     "fuse.js": "^7.1.0",
