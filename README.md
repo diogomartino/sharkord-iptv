@@ -1,3 +1,8 @@
+# DEPRECATED
+
+New plugin can be found at [https://github.com/sharkord/iptv](https://github.com/sharkord/iptv).
+
+
 # sharkord-iptv
 
 Simple IPTV Plugin for Sharkord. Allows you to stream IPTV channels (and others) directly within Sharkord.
